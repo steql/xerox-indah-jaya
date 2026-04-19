@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xerox Indah Jaya Wahid – Print & Digital Printing Jakarta</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #ffffff;
+    --off: #f8f8f6;
+    --blue: #1847d4;
+    --blue-dark: #0f35a8;
+    --blue-light: #e8eefb;
+    --red: #d42518;
+    --red-light: #fdf0ef;
+    --ink: #111111;
+    --mid: #444444;
+    --muted: #888888;
+    --border: #e5e5e5;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    background: var(--white);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+  .label {
+    font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--blue);
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    height: 64px; display: flex; align-items: center;
+  }
+  .nav-inner {
+    width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 40px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo-mark {
+    width: 32px; height: 32px; background: var(--blue);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .nav-logo-mark span {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1rem; color: white; line-height: 1; display: block; margin-top: 1px;
+  }
+  .nav-logo-text { font-size: 0.9rem; font-weight: 600; color: var(--ink); line-height: 1.2; }
+  .nav-logo-text small { display: block; font-size: 0.7rem; font-weight: 400; color: var(--muted); letter-spacing: 0.04em; }
+  nav ul { list-style: none; display: flex; align-items: center; gap: 36px; }
+  nav ul a { font-size: 0.85rem; font-weight: 500; color: var(--mid); text-decoration: none; transition: color .2s; }
+  nav ul a:hover { color: var(--blue); }
+  .nav-btn {
+    font-size: 0.8rem !important; font-weight: 600 !important;
+    color: white !important; background: var(--blue);
+    padding: 8px 20px; transition: background .2s !important;
+  }
+  .nav-btn:hover { background: var(--blue-dark) !important; }
+
+  /* HERO */
+  .hero { padding-top: 64px; min-height: 100vh; display: flex; flex-direction: column; }
+  .hero-main {
+    flex: 1; display: grid; grid-template-columns: 1fr 1fr;
+    max-width: 1100px; margin: 0 auto; width: 100%;
+    padding: 80px 40px; gap: 80px; align-items: center;
+  }
+  .hero-eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; }
+  .hero-eyebrow .dot { width: 6px; height: 6px; background: var(--red); border-radius: 50%; flex-shrink: 0; }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 400; line-height: 1.1;
+    letter-spacing: -0.02em; color: var(--ink); margin-bottom: 20px;
+  }
+  h1 em { font-style: italic; color: var(--blue); }
+  .hero-desc { font-size: 1rem; color: var(--mid); line-height: 1.75; max-width: 400px; margin-bottom: 36px; font-weight: 300; }
+  .hero-actions { display: flex; align-items: center; gap: 16px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem; font-weight: 600; text-decoration: none;
+    padding: 12px 24px; transition: all .2s; letter-spacing: 0.01em;
+    cursor: pointer; border: none;
+  }
+  .btn-blue { background: var(--blue); color: white; }
+  .btn-blue:hover { background: var(--blue-dark); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(24,71,212,.25); }
+  .btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--border); }
+  .btn-ghost:hover { border-color: var(--ink); }
+
+  .hero-right { display: flex; flex-direction: column; gap: 12px; }
+  .hero-card {
+    background: var(--white); border: 1px solid var(--border);
+    padding: 22px 26px; display: flex; align-items: flex-start; gap: 16px;
+    transition: box-shadow .25s, transform .25s;
+  }
+  .hero-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,.07); transform: translateX(4px); }
+  .hero-card-icon {
+    width: 38px; height: 38px; background: var(--blue-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0;
+  }
+  .hero-card-icon.red { background: var(--red-light); }
+  .hero-card-title { font-size: 0.88rem; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+  .hero-card-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
+
+  .hero-strip { border-top: 1px solid var(--border); background: var(--off); }
+  .hero-strip-inner {
+    max-width: 1100px; margin: 0 auto; padding: 0 40px;
+    display: flex; align-items: stretch;
+  }
+  .strip-item {
+    flex: 1; padding: 20px 28px; border-right: 1px solid var(--border);
+    display: flex; align-items: center; gap: 14px;
+  }
+  .strip-item:last-child { border-right: none; }
+  .strip-num { font-family: 'DM Serif Display', serif; font-size: 1.8rem; color: var(--blue); line-height: 1; flex-shrink: 0; }
+  .strip-label { font-size: 0.78rem; color: var(--muted); }
+  .strip-label strong { display: block; font-size: 0.83rem; color: var(--ink); font-weight: 600; margin-bottom: 1px; }
+
+  /* SECTIONS */
+  section { padding: 100px 0; }
+  .section-head { margin-bottom: 56px; }
+  .section-head .label { margin-bottom: 12px; display: block; }
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 400; line-height: 1.15; letter-spacing: -0.02em;
+  }
+  h2 em { font-style: italic; color: var(--blue); }
+  .section-head p { margin-top: 12px; font-size: 0.92rem; color: var(--mid); max-width: 480px; font-weight: 300; }
+
+  /* SERVICES */
+  #services { background: var(--white); }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1px; background: var(--border); border: 1px solid var(--border);
+  }
+  .svc {
+    background: var(--white); padding: 30px 26px;
+    position: relative; overflow: hidden; cursor: default;
+    transition: background .25s;
+  }
+  .svc::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+    background: var(--blue); transform: scaleX(0); transform-origin: left;
+    transition: transform .3s ease;
+  }
+  .svc:hover { background: var(--blue-light); }
+  .svc:hover::after { transform: scaleX(1); }
+  .svc-icon { font-size: 1.3rem; margin-bottom: 14px; display: block; }
+  .svc-name { font-size: 0.88rem; font-weight: 600; color: var(--ink); margin-bottom: 7px; }
+  .svc-desc { font-size: 0.77rem; color: var(--muted); line-height: 1.6; }
+  .svc-tag { display: inline-block; margin-top: 12px; font-size: 0.67rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); }
+
+  /* DIVIDER */
+  .divider-band { background: var(--blue); }
+  .divider-inner { max-width: 1100px; margin: 0 auto; padding: 0 40px; display: flex; align-items: stretch; }
+  .d-item {
+    flex: 1; padding: 34px 26px; border-right: 1px solid rgba(255,255,255,.15);
+    display: flex; align-items: center; gap: 14px;
+  }
+  .d-item:last-child { border-right: none; }
+  .d-icon { font-size: 1.3rem; }
+  .d-text strong { display: block; font-size: 0.88rem; font-weight: 600; color: white; margin-bottom: 2px; }
+  .d-text span { font-size: 0.76rem; color: rgba(255,255,255,.58); }
+
+  /* ABOUT */
+  #about { background: var(--off); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .about-text .label { margin-bottom: 12px; display: block; }
+  .about-text h2 { margin-bottom: 20px; }
+  .about-text p { font-size: 0.93rem; color: var(--mid); line-height: 1.8; margin-bottom: 14px; font-weight: 300; }
+  .about-text p strong { color: var(--ink); font-weight: 600; }
+  .about-checklist { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 22px; }
+  .about-checklist li { display: flex; gap: 12px; align-items: flex-start; font-size: 0.87rem; color: var(--mid); }
+  .check-icon {
+    width: 18px; height: 18px; background: var(--blue);
+    flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .check-icon svg { width: 10px; height: 10px; fill: none; stroke: white; stroke-width: 2.5; }
+
+  .about-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .about-stat {
+    background: var(--white); border: 1px solid var(--border); padding: 26px 22px;
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .about-stat:hover { border-color: var(--blue); box-shadow: 0 4px 20px rgba(24,71,212,.08); }
+  .about-stat:nth-child(2) { margin-top: 24px; }
+  .about-stat:nth-child(3) { margin-top: -12px; }
+  .about-stat .num { font-family: 'DM Serif Display', serif; font-size: 2.3rem; color: var(--blue); line-height: 1; margin-bottom: 4px; }
+  .about-stat .unit { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
+  .about-stat.red .num { color: var(--red); }
+
+  /* PRICING */
+  #pricing { background: var(--white); }
+  .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .price-card {
+    border: 1px solid var(--border); padding: 30px 22px;
+    position: relative; background: var(--white);
+    transition: border-color .2s, box-shadow .2s, transform .2s;
+  }
+  .price-card:hover { border-color: var(--blue); box-shadow: 0 8px 32px rgba(24,71,212,.1); transform: translateY(-4px); }
+  .price-card.featured { background: var(--blue); border-color: var(--blue); }
+  .price-card.featured:hover { box-shadow: 0 8px 32px rgba(24,71,212,.3); }
+  .price-badge {
+    position: absolute; top: 14px; right: 14px;
+    background: var(--red); color: white;
+    font-size: 0.63rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 3px 8px;
+  }
+  .price-icon { font-size: 1.1rem; margin-bottom: 14px; display: block; }
+  .price-category { font-size: 0.67rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--blue); margin-bottom: 5px; }
+  .price-card.featured .price-category { color: rgba(255,255,255,.55); }
+  .price-name { font-size: 0.95rem; font-weight: 600; color: var(--ink); margin-bottom: 10px; }
+  .price-card.featured .price-name { color: white; }
+  .price-amount { font-family: 'DM Serif Display', serif; font-size: 1.9rem; color: var(--ink); line-height: 1.1; }
+  .price-card.featured .price-amount { color: white; }
+  .price-per { font-size: 0.73rem; color: var(--muted); margin-bottom: 18px; }
+  .price-card.featured .price-per { color: rgba(255,255,255,.5); }
+  .price-divider { width: 100%; height: 1px; background: var(--border); margin: 18px 0; }
+  .price-card.featured .price-divider { background: rgba(255,255,255,.15); }
+  .price-items { list-style: none; display: flex; flex-direction: column; gap: 7px; font-size: 0.79rem; color: var(--mid); }
+  .price-card.featured .price-items { color: rgba(255,255,255,.7); }
+  .price-items li { display: flex; gap: 8px; align-items: flex-start; }
+  .price-items li::before { content: '–'; color: var(--blue); flex-shrink: 0; font-weight: 600; }
+  .price-card.featured .price-items li::before { color: rgba(255,255,255,.4); }
+  .price-cta {
+    display: block; margin-top: 22px; text-align: center;
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em;
+    padding: 10px; border: 1.5px solid var(--blue); color: var(--blue);
+    text-decoration: none; transition: background .2s, color .2s;
+  }
+  .price-cta:hover { background: var(--blue); color: white; }
+  .price-card.featured .price-cta { border-color: rgba(255,255,255,.4); color: white; }
+  .price-card.featured .price-cta:hover { background: rgba(255,255,255,.15); }
+
+  /* CONTACT */
+  #contact { background: var(--off); }
+  .contact-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: start; }
+  .contact-left .label { margin-bottom: 12px; display: block; }
+  .contact-left h2 { margin-bottom: 16px; }
+  .contact-left p { font-size: 0.9rem; color: var(--mid); line-height: 1.75; font-weight: 300; margin-bottom: 30px; }
+  .contact-items { display: flex; flex-direction: column; }
+  .contact-item {
+    display: flex; gap: 16px; align-items: flex-start;
+    padding: 18px 0; border-bottom: 1px solid var(--border);
+  }
+  .contact-item:first-child { border-top: 1px solid var(--border); }
+  .ci-icon {
+    width: 34px; height: 34px; background: var(--blue-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem; flex-shrink: 0;
+  }
+  .ci-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+  .ci-value { font-size: 0.88rem; color: var(--ink); font-weight: 500; line-height: 1.5; }
+  .ci-value a { color: var(--ink); text-decoration: none; transition: color .2s; }
+  .ci-value a:hover { color: var(--blue); }
+  .wa-link {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-top: 26px; background: #25d366; color: white;
+    font-size: 0.83rem; font-weight: 600; padding: 13px 22px;
+    text-decoration: none; transition: background .2s, transform .2s, box-shadow .2s;
+  }
+  .wa-link:hover { background: #1da854; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,211,102,.3); }
+  .wa-link svg { width: 17px; height: 17px; fill: white; flex-shrink: 0; }
+
+  .hours-box { background: var(--white); border: 1px solid var(--border); padding: 26px; }
+  .hours-title {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--blue); margin-bottom: 18px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hours-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .hours-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 9px 0; font-size: 0.84rem; border-bottom: 1px solid var(--border);
+  }
+  .hours-row:last-child { border-bottom: none; }
+  .hours-row .day { color: var(--mid); }
+  .hours-row .time { font-weight: 500; color: var(--ink); }
+  .badge { font-size: 0.63rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 7px; }
+  .badge-open { background: #e6f7ed; color: #1a7a3c; }
+  .rating-box {
+    margin-top: 14px; background: var(--blue);
+    padding: 20px 26px; display: flex; align-items: center; gap: 16px;
+  }
+  .rating-score { font-family: 'DM Serif Display', serif; font-size: 2.8rem; color: white; line-height: 1; flex-shrink: 0; }
+  .rating-info .stars { color: #ffd700; font-size: 0.88rem; letter-spacing: 1px; }
+  .rating-info p { font-size: 0.74rem; color: rgba(255,255,255,.6); margin-top: 3px; }
+
+  /* FOOTER */
+  footer { border-top: 1px solid var(--border); background: var(--white); padding: 26px 0; }
+  .footer-inner {
+    max-width: 1100px; margin: 0 auto; padding: 0 40px;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;
+  }
+  .footer-logo { display: flex; align-items: center; gap: 10px; }
+  .footer-logo-mark { width: 26px; height: 26px; background: var(--blue); display: flex; align-items: center; justify-content: center; }
+  .footer-logo-mark span { font-family: 'DM Serif Display', serif; color: white; font-size: 0.85rem; }
+  .footer-name { font-size: 0.84rem; font-weight: 600; color: var(--ink); }
+  .footer-copy { font-size: 0.74rem; color: var(--muted); }
+  .footer-links { display: flex; gap: 22px; }
+  .footer-links a { font-size: 0.74rem; color: var(--muted); text-decoration: none; transition: color .2s; }
+  .footer-links a:hover { color: var(--blue); }
+
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav ul { display: none; }
+    .hero-main { grid-template-columns: 1fr; padding-top: 60px; }
+    .hero-strip-inner { flex-wrap: wrap; }
+    .strip-item { min-width: 50%; border-bottom: 1px solid var(--border); }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    .pricing-grid { grid-template-columns: 1fr 1fr; }
+    .divider-inner { flex-wrap: wrap; }
+    .d-item { min-width: 50%; border-bottom: 1px solid rgba(255,255,255,.15); }
+  }
+  @media (max-width: 560px) {
+    .container { padding: 0 20px; }
+    .services-grid, .pricing-grid { grid-template-columns: 1fr; }
+    .about-visual { grid-template-columns: 1fr 1fr; }
+    .about-stat:nth-child(2), .about-stat:nth-child(3) { margin: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-mark"><span>X</span></div>
+      <div class="nav-logo-text">Xerox Indah Jaya Wahid<small>Digital Printing & Fotokopi</small></div>
+    </a>
+    <ul>
+      <li><a href="#services">Layanan</a></li>
+      <li><a href="#about">Tentang</a></li>
+      <li><a href="#pricing">Harga</a></li>
+      <li><a href="#contact" class="nav-btn">Hubungi Kami</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-main">
+    <div class="hero-content reveal">
+      <div class="hero-eyebrow">
+        <div class="dot"></div>
+        <span class="label">Solusi Cetak Terpercaya · Jakarta Pusat</span>
+      </div>
+      <h1>Cetak Lebih Mudah,<br>Hasil Lebih <em>Sempurna</em></h1>
+      <p class="hero-desc">Fotokopi, print, desain grafis, stiker, spanduk — semua kebutuhan cetak Anda kami tangani dengan kualitas terbaik dan harga terjangkau di Menteng, Jakarta Pusat.</p>
+      <div class="hero-actions">
+        <a href="#services" class="btn btn-blue">Lihat Layanan</a>
+        <a href="#contact" class="btn btn-ghost">Lokasi & Jam Buka</a>
+      </div>
+    </div>
+    <div class="hero-right reveal">
+      <div class="hero-card">
+        <div class="hero-card-icon">🖨️</div>
+        <div>
+          <div class="hero-card-title">Print & Fotokopi</div>
+          <div class="hero-card-desc">Hitam-putih & warna, A4 hingga A0, hasil tajam dengan mesin Xerox terbaru.</div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon">🎨</div>
+        <div>
+          <div class="hero-card-title">Desain Grafis Custom</div>
+          <div class="hero-card-desc">Logo, brosur, poster, kartu nama — desainer siap membantu dari konsep hingga cetak.</div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon red">🏷️</div>
+        <div>
+          <div class="hero-card-title">Stiker & Spanduk</div>
+          <div class="hero-card-desc">Stiker vinyl, cutting, spanduk outdoor — material premium, warna vivid, tahan lama.</div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon red">📚</div>
+        <div>
+          <div class="hero-card-title">Jilid & Finishing</div>
+          <div class="hero-card-desc">Spiral, hardcover, softcover, laminating — untuk skripsi, laporan, dan katalog.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-strip">
+    <div class="hero-strip-inner">
+      <div class="strip-item reveal">
+        <div class="strip-num">4.8</div>
+        <div class="strip-label"><strong>Rating Google</strong>4,473 ulasan pelanggan</div>
+      </div>
+      <div class="strip-item reveal">
+        <div class="strip-num">15+</div>
+        <div class="strip-label"><strong>Tahun Berpengalaman</strong>Melayani Jakarta sejak lama</div>
+      </div>
+      <div class="strip-item reveal">
+        <div class="strip-num">8+</div>
+        <div class="strip-label"><strong>Jenis Layanan</strong>Semua kebutuhan cetak tersedia</div>
+      </div>
+      <div class="strip-item reveal">
+        <div class="strip-num">1 Hari</div>
+        <div class="strip-label"><strong>Pengerjaan Cepat</strong>Tersedia untuk order mendadak</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="label">Layanan Kami</span>
+      <h2>Apa yang Bisa<br>Kami <em>Kerjakan</em></h2>
+      <p>Dari fotokopi satu lembar hingga cetak ribuan eksemplar, kami siap melayani semua skala kebutuhan Anda.</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc reveal"><span class="svc-icon">🖨️</span><div class="svc-name">Print & Fotokopi</div><p class="svc-desc">Dokumen hitam-putih & warna dengan mesin Xerox profesional. Berbagai ukuran kertas tersedia.</p><span class="svc-tag">A4 · A3 · F4 · A0</span></div>
+      <div class="svc reveal"><span class="svc-icon">🎨</span><div class="svc-name">Desain Grafis</div><p class="svc-desc">Logo, brosur, poster, banner, kartu nama. Tim desainer berpengalaman siap membantu.</p><span class="svc-tag">Logo · Brosur · Poster</span></div>
+      <div class="svc reveal"><span class="svc-icon">🏷️</span><div class="svc-name">Stiker & Label</div><p class="svc-desc">Vinyl, transparan, hologram, cut sticker. Cocok untuk produk, promosi, dan dekorasi.</p><span class="svc-tag">Vinyl · KissCut · DieCut</span></div>
+      <div class="svc reveal"><span class="svc-icon">🎪</span><div class="svc-name">Spanduk & Banner</div><p class="svc-desc">Spanduk, banner, rollup, backdrop, x-banner. Material outdoor-proof, warna vivid.</p><span class="svc-tag">Indoor · Outdoor · MMT</span></div>
+      <div class="svc reveal"><span class="svc-icon">📚</span><div class="svc-name">Jilid & Finishing</div><p class="svc-desc">Spiral, soft cover, hard cover untuk skripsi, laporan, proposal, dan buku perusahaan.</p><span class="svc-tag">Spiral · Hard · Soft cover</span></div>
+      <div class="svc reveal"><span class="svc-icon">💳</span><div class="svc-name">Kartu Nama & ID Card</div><p class="svc-desc">Kartu nama & ID card dengan finishing laminasi doff, glossy, emboss, atau UV spot.</p><span class="svc-tag">Doff · Glossy · UV Spot</span></div>
+      <div class="svc reveal"><span class="svc-icon">✂️</span><div class="svc-name">Laminating & Cutting</div><p class="svc-desc">Laminating dokumen, foto, sertifikat. Cutting plotter untuk stiker die-cut berbagai bentuk.</p><span class="svc-tag">Doff · Glossy · Die-cut</span></div>
+      <div class="svc reveal"><span class="svc-icon">💌</span><div class="svc-name">Undangan & Katalog</div><p class="svc-desc">Undangan pernikahan & ulang tahun, katalog produk, company profile, dan majalah custom.</p><span class="svc-tag">Undangan · Katalog · Buku</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- DIVIDER -->
+<div class="divider-band">
+  <div class="divider-inner">
+    <div class="d-item"><span class="d-icon">⚡</span><div class="d-text"><strong>Proses Cepat</strong><span>Pengerjaan dalam 1 hari</span></div></div>
+    <div class="d-item"><span class="d-icon">💰</span><div class="d-text"><strong>Harga Terjangkau</strong><span>Kompetitif & transparan</span></div></div>
+    <div class="d-item"><span class="d-icon">🏆</span><div class="d-text"><strong>Kualitas Terjamin</strong><span>Mesin Xerox profesional</span></div></div>
+    <div class="d-item"><span class="d-icon">🎨</span><div class="d-text"><strong>Free Konsultasi Desain</strong><span>Tim siap membantu Anda</span></div></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <span class="label">Tentang Kami</span>
+        <h2>Terpercaya di <em>Jakarta Pusat</em></h2>
+        <p>Fotocopy Xerox Indah Jaya adalah destinasi cetak terpercaya yang berlokasi strategis di <strong>Jl. K.H. Wahid Hasyim no 2A, Tugu Tani Menteng, Jakarta Pusat 10340</strong>, tepat di jantung Jakarta Pusat.</p>
+        <p>Dengan lebih dari <strong>Banyak ulasan positif di Google</strong>, kami telah melayani ribuan pelanggan — dari pelajar, mahasiswa, profesional, hingga pelaku usaha — dengan standar kualitas yang konsisten.</p>
+        <ul class="about-checklist">
+          <li><div class="check-icon"><svg viewBox="0 0 10 8"><polyline points="1,4 4,7 9,1"/></svg></div>Mesin Xerox generasi terbaru, hasil cetakan tajam & presisi</li>
+          <li><div class="check-icon"><svg viewBox="0 0 10 8"><polyline points="1,4 4,7 9,1"/></svg></div>Staff berpengalaman & ramah, siap konsultasi</li>
+          <li><div class="check-icon"><svg viewBox="0 0 10 8"><polyline points="1,4 4,7 9,1"/></svg></div>Melayani pesanan satuan hingga ribuan eksemplar</li>
+          <li><div class="check-icon"><svg viewBox="0 0 10 8"><polyline points="1,4 4,7 9,1"/></svg></div>Lokasi strategis, mudah dijangkau dari pusat kota</li>
+        </ul>
+      </div>
+      <div class="about-visual reveal">
+        <div class="about-stat"><div class="num">4.8★</div><div class="unit">Rating Google</div></div>
+        <div class="about-stat red"><div class="num">10.000+</div><div class="unit">Orderan Customer kami memuaskan</div></div>
+        <div class="about-stat red"><div class="num">25+</div><div class="unit">Tahun Berdiri</div></div>
+        <div class="about-stat"><div class="num">100+</div><div class="unit">Jenis Layanan</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="label">Estimasi Harga</span>
+      <h2>Harga <em>Terjangkau</em>,<br>Kualitas Tidak Kompromi</h2>
+      <p>Harga kompetitif dengan kualitas terjamin. Hubungi kami untuk penawaran khusus pesanan partai.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <span class="price-icon">🖨️</span>
+        <div class="price-category">Fotokopi</div>
+        <div class="price-name">Hitam & Putih</div>
+        <div class="price-amount">Rp 300</div>
+        <div class="price-per">per lembar (A4)</div>
+        <div class="price-divider"></div>
+        <ul class="price-items">
+          <li>A4, F4, A3</li><li>Mesin Xerox profesional</li><li>Hasil bersih & tajam</li><li>Cocok untuk dokumen massal</li>
+        </ul>
+        <a href="#contact" class="price-cta">Pesan Sekarang</a>
+      </div>
+      <div class="price-card featured reveal">
+        <div class="price-badge">Populer</div>
+        <span class="price-icon">🎨</span>
+        <div class="price-category">Digital Print</div>
+        <div class="price-name">Print Warna</div>
+        <div class="price-amount">Rp 2000</div>
+        <div class="price-per">per lembar (A4)</div>
+        <div class="price-divider"></div>
+        <ul class="price-items">
+          <li>Full color vivid</li><li>A4, A3, F4</li><li>Foto & dokumen</li><li>Kualitas premium</li>
+        </ul>
+        <a href="#contact" class="price-cta">Pesan Sekarang</a>
+      </div>
+      <div class="price-card reveal">
+        <span class="price-icon">🏷️</span>
+        <div class="price-category">Stiker</div>
+        <div class="price-name">Custom Stiker</div>
+        <div class="price-amount">Rp 5.000</div>
+        <div class="price-per">per lembar A4</div>
+        <div class="price-divider"></div>
+        <ul class="price-items">
+          <li>Vinyl, bening, kromo</li><li>Full color + desain</li><li>Tahan air & UV</li><li>Cutting tersedia</li>
+        </ul>
+        <a href="#contact" class="price-cta">Pesan Sekarang</a>
+      </div>
+      <div class="price-card reveal">
+        <span class="price-icon">📚</span>
+        <div class="price-category">Finishing</div>
+        <div class="price-name">Jilid Dokumen</div>
+        <div class="price-amount">Rp 6.000</div>
+        <div class="price-per">per buku (akban)</div>
+        <div class="price-divider"></div>
+        <ul class="price-items">
+          <li>Spiral, soft, hard cover</li><li>Skripsi & laporan</li><li>Majalah & proposal</li><li>Finishing rapi & cepat</li>
+        </ul>
+        <a href="#contact" class="price-cta">Pesan Sekarang</a>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:18px;font-size:0.76rem;color:var(--muted);">* Harga dapat berubah sesuai jenis pekerjaan & material. Hubungi kami untuk penawaran terbaik.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal">
+        <span class="label">Kontak & Lokasi</span>
+        <h2>Temukan Kami<br>di <em>Menteng</em></h2>
+        <p>Kunjungi toko kami langsung atau hubungi via WhatsApp untuk konsultasi, penawaran harga, dan pemesanan.</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="ci-icon">📍</div>
+            <div><div class="ci-label">Alamat</div><div class="ci-value">Jl. K.H. Wahid Hasyim No.2a, Tugu Tani,<br>Menteng, Jakarta Pusat 10340</div></div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">📱</div>
+            <div><div class="ci-label">Telepon / WhatsApp</div><div class="ci-value"><a href="tel:+6287880805555">0878-8080-5555</a></div></div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">🗺️</div>
+            <div><div class="ci-label">Google Maps</div><div class="ci-value"><a href="https://maps.google.com/?q=Fotocopy+Xerox+Indah+Jaya+Jakarta" target="_blank">Buka di Google Maps →</a></div></div>
+          </div>
+        </div>
+        <a href="https://wa.me/6287880805555?text=Halo%20Indah%20Jaya%2C%20saya%20ingin%20tanya%20soal%20layanan%20cetak" class="wa-link" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Chat via WhatsApp
+        </a>
+      </div>
+      <div class="reveal">
+        <div class="hours-box">
+          <div class="hours-title">Jam Operasional</div>
+          <div class="hours-row"><span class="day">Senin</span><span class="time">08.00 – 21.00 <span class="badge badge-open">Buka</span></span></div>
+          <div class="hours-row"><span class="day">Selasa</span><span class="time">08.00 – 21.00</span></div>
+          <div class="hours-row"><span class="day">Rabu</span><span class="time">08.00 – 21.00</span></div>
+          <div class="hours-row"><span class="day">Kamis</span><span class="time">08.00 – 21.00</span></div>
+          <div class="hours-row"><span class="day">Jumat</span><span class="time">08.00 – 21.00</span></div>
+          <div class="hours-row"><span class="day">Sabtu</span><span class="time">09.00 – 18.00</span></div>
+          <div class="hours-row"><span class="day">Minggu</span><span class="time">09.00 – 18.00</span></div>
+          <p>Jika ada kebutuhan mendesak, hubungi kami</p>
+        </div>
+        <div class="rating-box">
+          <div class="rating-score">4.8</div>
+          <div class="rating-info">
+            <div class="stars">★★★★★</div>
+            <p>Berdasarkan 4,473<br>ulasan Google</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <div class="footer-logo-mark"><span>X</span></div>
+      <div class="footer-name">Xerox Indah Jaya</div>
+    </div>
+    <div class="footer-copy">© 2025 Fotocopy Xerox Indah Jaya · Jakarta Pusat</div>
+    <div class="footer-links">
+      <a href="#services">Layanan</a>
+      <a href="#pricing">Harga</a>
+      <a href="#contact">Kontak</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
