@@ -592,6 +592,60 @@
           <div class="rating-info">
             <div class="stars">★★★★★</div>
             <p>Berdasarkan oleh banyak<br>ulasan Google</p>
+            <script>
+const schedule = {
+  1: { open: "08:00", close: "21:00" }, // Senin
+  2: { open: "08:00", close: "21:00" }, // Selasa
+  3: { open: "08:00", close: "21:00" }, // Rabu
+  4: { open: "08:00", close: "21:00" }, // Kamis
+  5: { open: "08:00", close: "21:00" }, // Jumat
+  6: { open: "09:00", close: "18:00" }, // Sabtu
+  0: { open: "09:00", close: "18:00" }  // Minggu
+};
+
+function checkStatus() {
+  const now = new Date();
+  const day = now.getDay(); // 0 = Minggu, 1 = Senin
+  const currentTime = now.getHours() * 60 + now.getMinutes();
+
+  const openTime = schedule[day].open.split(":");
+  const closeTime = schedule[day].close.split(":");
+
+  const openMinutes = parseInt(openTime[0]) * 60 + parseInt(openTime[1]);
+  const closeMinutes = parseInt(closeTime[0]) * 60 + parseInt(closeTime[1]);
+
+  const rows = document.querySelectorAll(".hours-row");
+
+  rows.forEach(row => {
+    const badge = row.querySelector(".badge");
+    if (badge) badge.remove(); // hapus badge lama
+  });
+
+  // cari baris hari ini
+  const todayRow = rows[day === 0 ? 6 : day - 1];
+
+  const badge = document.createElement("span");
+  badge.classList.add("badge");
+
+  if (currentTime >= openMinutes && currentTime <= closeMinutes) {
+    badge.textContent = "Buka";
+    badge.style.backgroundColor = "green";
+    badge.style.color = "white";
+  } else {
+    badge.textContent = "Tutup";
+    badge.style.backgroundColor = "red";
+    badge.style.color = "white";
+  }
+
+  todayRow.querySelector(".time").appendChild(badge);
+}
+
+// jalankan pertama kali
+checkStatus();
+
+// update tiap menit
+setInterval(checkStatus, 60000);
+</script>
           </div>
         </div>
       </div>
